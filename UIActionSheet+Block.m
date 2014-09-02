@@ -23,14 +23,27 @@
             otherButtonTitles:(NSArray *)otherButtonTitles
 {
     self = [self initWithTitle:title delegate:nil
-             cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle
-             otherButtonTitles:nil];
+             cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     if (self) {
+        NSInteger buttonIndex = 0;
+
+        if (destructiveButtonTitle) {
+            [self addButtonWithTitle:destructiveButtonTitle];
+            self.destructiveButtonIndex = buttonIndex++;
+        }
+
         for (NSString *otherButtonTitle in otherButtonTitles) {
             [self addButtonWithTitle:otherButtonTitle];
+            ++buttonIndex;
         }
+
+        if (cancelButtonTitle) {
+            [self addButtonWithTitle:cancelButtonTitle];
+            self.cancelButtonIndex = buttonIndex++;
+        }
+
     }
-    
+
     return self;
 }
 
@@ -73,7 +86,7 @@
 {
     self.delegate = self;
     self.block = block;
-    
+
     [self showFromTabBar:view];
 }
 
@@ -82,7 +95,7 @@
 {
     self.delegate = self;
     self.block = block;
-    
+
     [self showFromToolbar:view];
 }
 
@@ -91,7 +104,7 @@
 {
     self.delegate = self;
     self.block = block;
-    
+
     [self showInView:view];
 }
 
@@ -100,7 +113,7 @@
 {
     self.delegate = self;
     self.block = block;
-    
+
     [self showFromBarButtonItem:item animated:animated];
 }
 
@@ -109,7 +122,7 @@
 {
     self.delegate = self;
     self.block = block;
-    
+
     [self showFromRect:rect inView:view animated:animated];
 }
 
