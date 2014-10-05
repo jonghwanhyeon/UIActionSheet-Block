@@ -53,7 +53,7 @@
 {
     return [self initWithTitle:nil
              cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle
-             otherButtonTitles:nil];
+             otherButtonTitles:otherButtonTitles];
 }
 
 - (instancetype)initWithTitle:(NSString *)title
