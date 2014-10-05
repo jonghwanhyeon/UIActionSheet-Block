@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "UIActionSheet+Block"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "UIActionSheet category to replace UIUIActionSheetDelegate by block"
   s.homepage     = "https://github.com/hyeon0145/UIActionSheet-Block.git"
   s.license      = { :type => 'WTFPL', :file => 'LICENSE' }
